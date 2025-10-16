@@ -22,7 +22,7 @@ class Mensaje{
         return (int)$pdo -> lastInsertId();
     }
 
-    public static function update(int $id, array $d):bool{
+    public static function updateById(int $id, array $d):bool{
         $pdo = Database::getConnection();
         $st = $pdo -> query('UPDATE mensajes SET titulo=?, descripcion=?, imagen=?, fecha=? WHERE id=?');
         $st -> execute ([$d['titulo'], $d['descripcion'], $d['imagen'], $d['fecha'], $id]);
